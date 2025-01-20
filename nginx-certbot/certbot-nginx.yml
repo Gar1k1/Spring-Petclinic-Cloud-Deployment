@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  reverse-proxy:
+    image: nginx:1.25.1-alpine
+    container_name: reverse-proxy
+    restart: always
+    volumes:
+      - ./nginx-config:/etc/nginx/conf.d
+      - ./letsencrypt/conf:/etc/letsencrypt
+      - ./letsencrypt/www:/var/www/letsencrypt
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - net
+    command: >
+      /bin/sh -c "while sleep 6h; do nginx -s reload; done & nginx -g 'daemon off;'"
+
+  certbot-renewal:
+    container_name: certbot-renewal
+    image: certbot/certbot
+    restart: always
+    volumes:
+      - ./letsencrypt/conf:/etc/letsencrypt
+      - ./letsencrypt/www:/var/www/letsencrypt
+    entrypoint: >
+      /bin/sh -c "while sleep 12h; do certbot renew; done"
+    networks:
+      - net
+
+networks:
+  net:
+    external: true
+    name: net

@@ -1,0 +1,11 @@
+datasource:
+  Ec2:
+    strict_id: false
+ssh_pwauth: no
+users:
+  - name: admin
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDiOrJY1BOXVKWe3o55WQih8rLs0BFjRFljwxUjzb1Jx0tj3+WTDwwCXlpxb6NOY8BusmThS/fgIy3F694xfP8YBU/BdZ95RqlIDF+TmK+X0TXtxVKEj9LpBfFXLNWbrd0grj1iwbDkc/IxUbow6nZx9ia54+TLhl/YTSJdiEBq7sL69Ex801m+zUj+zC84SyA8wLhndqXhyzpXbys8gjaMoJAm9e7tPyWs+30GAeVu5HqAWPOM4Wbd5s+tkhpDg8u73w5BLokhP9J/OTbLRKQSbIbjt2uvU2s9KzNLLbjUqnOo2862R4d/js2BDEasn9rzLPmgnwQHEeg8HJ/VPJBj admin@virutalmachine
+runcmd: [echo "Cloud-init выполнен успешно!"]
