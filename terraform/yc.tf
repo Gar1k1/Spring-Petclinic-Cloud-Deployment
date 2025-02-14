@@ -93,7 +93,7 @@ resource "yandex_compute_instance" "vm-1" {
       "sudo apt-get update",
       "sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y",
       "sudo usermod -aG docker $USER",
-      "git clone https://github.com/Gar1k1/SPRING-PETCLINIC.git",
+      "git clone https://github.com/Gar1k1/Spring-Petclinic-Cloud-Deployment.git",
       "cd ~/SPRING-PETCLINIC/",
       "sudo docker build . -t petclinic",
       "sudo docker network create net",
