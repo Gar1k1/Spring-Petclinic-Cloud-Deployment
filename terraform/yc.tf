@@ -97,8 +97,8 @@ resource "yandex_compute_instance" "vm-1" {
       "cd ~/SPRING-PETCLINIC/",
       "sudo docker build . -t petclinic",
       "sudo docker network create net",
-      "sudo apt-get install docker-compose -y",
-      "sudo docker-compose up -d"
+      "sudo docker-compose up -d",
+      "sudo apt-get install docker-compose -y"
     ]
   }
 }
